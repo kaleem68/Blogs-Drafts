@@ -29,6 +29,7 @@ Let's do the `Append` operation performance benchmark using String and StringBui
 - ```We want to know how much time it takes to append a string n times using String and StringBuilder ```
  
 #### String Class
+```java
 public class StringBenchmark {
     public static void main(String[] args) {
         String appendCharacter = "a";
@@ -54,7 +55,7 @@ public class StringBenchmark {
         }
     }
 }
-
+```
 ##### String Class Results
 ```
 n = 100000: seconds: 0.38
@@ -109,5 +110,9 @@ n = 800000: seconds: 0.0029
 n = 900000: seconds: 0.0032
 n = 1000000: seconds: 0.0036
 
-
 ```
+
+# Conclusion
+- Modifying String creates a new String in the heap memory, to modify the content of the String we should consider StringBuilder class, as StringBuilder has a constant modification time.
+- Any attempt to modify the String class creates a new object in the memory which has signifnicant performence draw back as shown in String class benchmark.
+- Pick StringBuilder over String class in all cases where you want to modify the content of the string.
