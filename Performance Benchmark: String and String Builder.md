@@ -1,5 +1,8 @@
-Java Strings are immutable, which means that once the String class object is created, it cannot be modified.
+Hello everybody, in this article, we will discuss how to modify strings efficiently in java.
 
+Java Strings are immutable. When a String object is created, its content cannot be modified.
+
+Any attempt to modify the String will create a new string object in the heap memory without changing the existing string.
 ### Immutability
 ```java
   String str = "You cannot modify."
