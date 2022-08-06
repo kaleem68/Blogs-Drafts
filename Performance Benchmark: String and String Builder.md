@@ -1,8 +1,8 @@
-Hello everybody, in this article, we will discuss how to modify Java Strings and do a practical benchmarking by `modifying` String and StringBuilder
+Hello everybody, in this article, we will discuss how to modify Java Strings and do performance benchmarking `modifying` String and StringBuilder
 
 Java Strings are immutable when a String object is created, its content cannot be modified.
 
-Modifying the content of the String creates a new String object in the heap memory with the latest content and the original String is never modified
+Modifying the content of the String creates a new String object in the heap memory with the latest content and the original String is never modified.
 ### Immutability
 ```java
   String str = "You cannot modify "
@@ -13,7 +13,7 @@ When we appended the value "me" to the **str** variable, a new String object was
 ### Performance
 Appending strings frequently using the `+` operator has significant performance issues, every time `+` append is used a new String object is created and reassigned.
 
-To modify the strings efficiently, we should consider the StringBuilder which modifies the String object and does not create any extra object in the heap memory.
+To modify the strings efficiently, we should consider the StringBuilder which modifies the string and does not create any extra object in the heap memory.
 ### String Modification
 Use StringBuilder class to modify the string; this does not create a new String object but modifies the existing one.
 ```java
@@ -25,8 +25,8 @@ Let's do the `Modification` operation performance benchmark using String and Str
  
 - Consider 10 data points
  - ```inputSample = [100k, 200k, 300k, 400k, 500k, 600k, 700k, 800k, 900k, 1m]```
-- Starting with an empty string and append "a" **n** times. where n = inputSample[i] i.e ```n = 700k```
-- ```We want to know how much time it takes to append a string n times using String and StringBuilder ```
+- Starting with an empty string and appending the stirng "a" **n** times. where n = inputSample[i] i.e ```n = 700k```
+- ```We want to know how much does time it takes to append a string n times using String and StringBuilder ```
  
 #### String Class
 ```java
@@ -111,9 +111,9 @@ n = 900000: seconds: 0.0032
 n = 1000000: seconds: 0.0036
 
 ```
-In practice, if you are performing frequeuent String modification operations you should consider using StringBuilder over String class.
-
+In practice, if you are performing frequeuent String modification operations you should consider using StringBuilder over String class
+StringBuilder is memory effecient and has faster execution time.
 # Conclusion
 - Modifying String creates a new String in the heap memory, to modify the content of the String we should consider StringBuilder class, as StringBuilder has a constant modification time.
 - Any attempt to modify the String class creates a new object in the memory which has signifnicant performence draw back as shown in String class benchmark.
-- Pick StringBuilder over String class in all cases where you want to modify the content of the string.
+- Pick StringBuilder over String class in cases where you want to modify the string content.
