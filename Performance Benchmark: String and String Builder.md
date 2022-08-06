@@ -112,6 +112,9 @@ n = 900000: seconds: 0.0032
 n = 1000000: seconds: 0.0036
 
 ```
+## Comparison Benchmark
+
+![Append operation benchmark of String and String Builder](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/f3jfsegt41xi6s933j75.png)
 In practice, if you perform frequent String modification operations, you should consider using StringBuilder over the String class.
 ## Conclusion
 - Modifying String creates a new String in the heap memory. To modify the content of the String, we should consider the StringBuilder class.
