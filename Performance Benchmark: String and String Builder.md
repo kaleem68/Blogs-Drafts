@@ -1,17 +1,15 @@
-Hello everybody, in this article, we will do a performance benchmarking of String and StringBuilder classes in Java and discuss how to modify Java String.
+In this article, we will do a performance benchmarking of String and StringBuilder classes in Java and discuss how to modify strings efficiently. 
 
-Strings in java are immutable; when a String gets created, the content of the Strings not be modified. 
-
-Modifying the String creates a new String object in the heap memory with the latest content, and the original String is never changed.
+Strings in Java are immutable; modifying the String creates a new String object in the heap memory with the latest content, and the original String is never changed.
 ### Immutability
 ```java
   String str = "You cannot modify "
   str = str + "me"
 ```
-When we appended the value "me" to the **str** variable, a new String object was created with the values `You cannot modify me` and assigned to **str**. The original string `You cannot modify ` did not get modified.
+When we append the value "me" to the **str** variable, a new String object gets created with the new value `You cannot modify me` and gets assigned to **str**. The original string `You cannot modify` does not change.
 
 ### Performance
-Appending strings frequently using the `+` operator has significant performance issues, every time the `+` append is used, a new String object is created and reassigned.
+Frequently modifying strings such as using the `+` operator has significant performance issues, every time the `+` append is used, a new String object gets created and reassigned.
 
 To modify the strings efficiently, we should consider the StringBuilder, which changes the string and does not create any extra object in the heap memory.
 ### String Modification
@@ -20,14 +18,14 @@ Use the StringBuilder class to modify the string; this does not create a new Str
   StringBuilder str = new StringBuilder("You can modify.");
   str.append("me");
 ```
-### Benchmark
-Let's do the `append` operation performance benchmark using String and StringBuilder; consider the followings.
+### Performance Benchmarking
+Consider the `concatenation` operation performance benchmark with the String and StringBuilder; consider the following.
  
 - Consider 10 data points
  - inputSample = 
   [100k, 200k, 300k, 400k, 500k, 600k, 700k, 800k, 900k, 1m].
- - Start with an empty string and append the string "a" **n** times. where n = inputSample[i] i.e n = 700k.
- - We want to know how long it takes to append a string "a" **n** time using String and StringBuilder.
+ - Start with an empty string and concatenate the string "a" **n** time, where n = inputSample[i] i.e n = 700k.
+ - We want to know how long it takes to concatenate a string "a" **n** time for the `inputSample` using String and StringBuilder.
  
 #### String Class
 ```java
@@ -58,7 +56,7 @@ public class StringBenchmark {
 }
 ```
 ##### String Class Results
-```
+```java
 n = 100000: seconds: 0.38
 n = 200000: seconds: 0.99
 n = 300000: seconds: 2.14
@@ -110,14 +108,12 @@ n = 700000: seconds: 0.0026
 n = 800000: seconds: 0.0029
 n = 900000: seconds: 0.0032
 n = 1000000: seconds: 0.0036
-
 ```
 ## Comparison Benchmark
 
 ![Append operation benchmark of String and String Builder](https://dev-to-uploads.s3.amazonaws.com/uploads/articles/f3jfsegt41xi6s933j75.png)
-
-In practice, if you perform frequent String modification operations, you should consider using StringBuilder over the String class.
+When you perform frequent String modification operations, you should consider using StringBuilder over the String class.
 ## Conclusion
-- Modifying String creates a new String in the heap memory. To modify the content of the String, we should consider the StringBuilder class.
-- Any attempt to modify the String class creates a new object in the memory heap, which has significant performance drawbacks.
-- Pick StringBuilder over String class in cases where you want to modify the string content.
+- Modifying a String creates a new String in the heap memory. To change the content of the String, we should consider the StringBuilder class.
+- Any attempt to modify the String class creates a new object in the heap memory, which has significant performance drawbacks.
+- StringBuilder is ideal for modifying string content; it does so without creating any extra objects in the memory.
