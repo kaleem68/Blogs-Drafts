@@ -1,5 +1,5 @@
 # Introduction
-- Hello everybody! In this Full Stack Tutorial we will build a simple project tracking application with dashboards.
+- Hello everybody! In this Full Stack Tutorial we will build TrackMyProject a simple project tracking application with dashboards
 - We will use  Next.js and Wundergraph to build this project
  
 ### Getting started
@@ -39,7 +39,7 @@ This section covers major components we will design
  - Top 5 - Expensive Projects
  - Projects - Status
 ## Routing
-  - define routing and nested routes
+  - Define routing and nested routes
 ## Wundergraph & Business Logic 
 - Display projects by status and refetch
 - CRUD logic
