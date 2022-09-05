@@ -1,1 +1,1 @@
-This repo contains draft blogs that are either in progress, cancelled or published.
+This repository contains draft blogs that are either in progress, cancelled or published.
